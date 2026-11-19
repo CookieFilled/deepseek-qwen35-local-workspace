@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Secrets & local runtime state
+.env
+studio_runtime.json
+
+# Persistent local caches & generated workspace files (never push huge GGUFs or artifacts)
+models/
+bin/
+logs/
+workspace/artifacts/
+workspace/screenshots/
+workspace/uploads/
+workspace/skills/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

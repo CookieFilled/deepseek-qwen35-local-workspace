@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepseek-qwen35-local-workspace"
+version = "1.0.0"
+description = "Autonomous local PC agentic workspace powered by DeepSeek-V4-Pro / Qwen3.5-9B (llama.cpp) or Gemini API, with portable SKILL.md workflows, Playwright Chromium, and desktop control."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.0",
+    "python-multipart>=0.0.9",
+    "pydantic>=2.7.0",
+    "openai>=1.35.0",
+    "httpx>=0.27.0",
+    "pyyaml>=6.0.1",
+    "pillow>=10.3.0",
+    "beautifulsoup4>=4.12.3",
+    "markdownify>=0.12.1",
+    "ddgs>=9.0.0",
+    "huggingface_hub>=0.24.0",
+    "python-dotenv>=1.0.1",
+    "psutil>=5.9.8",
+]
+
+[project.optional-dependencies]
+full = [
+    "playwright>=1.45.0",
+    "opencv-python-headless>=4.10.0",
+    "mss>=9.0.1",
+    "pyautogui>=0.9.54",
+    "weasyprint>=62.0",
+    "nbformat>=5.10.0",
+    "openpyxl>=3.1.2",
+    "python-pptx>=0.6.23",
+    "python-docx>=1.1.2",
+]
+llama-python = [
+    "llama-cpp-python[server]>=0.2.90",
+]
+
+[project.scripts]
+agentic-studio = "run:main"
+
+[tool.setuptools.packages.find]
+include = ["agentic_workspace*"]

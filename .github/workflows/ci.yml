@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install core dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Byte-compile & import check
+        run: |
+          python -m compileall -q run.py agentic_workspace
+          python -c "from agentic_workspace.config import WorkspaceConfig; from agentic_workspace.server import StudioRuntime, create_app; cfg = WorkspaceConfig(); rt = StudioRuntime(cfg); app = create_app(rt); print('CI OK:', app.title)"

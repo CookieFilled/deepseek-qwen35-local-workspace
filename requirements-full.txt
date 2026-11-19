@@ -1,0 +1,22 @@
+# Full optional dependencies: browser automation, desktop control, and document/media studios
+-r requirements.txt
+
+# Browser & video rendering
+playwright>=1.45.0
+opencv-python-headless>=4.10.0
+
+# Native cross-platform desktop operator (Windows/macOS/Linux)
+mss>=9.0.1
+pyautogui>=0.9.54
+
+# Document & artifact generators
+weasyprint>=62.0
+nbformat>=5.10.0
+openpyxl>=3.1.2
+python-pptx>=0.6.23
+python-docx>=1.1.2
+scipy>=1.13.0
+matplotlib>=3.9.0
+
+# Optional Python fallback inference server (only needed if native llama-server is not installed)
+# llama-cpp-python[server]>=0.2.90
